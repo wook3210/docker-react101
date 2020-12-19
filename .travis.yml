@@ -10,7 +10,7 @@ before_install:
   - docker build -t wook3210/docker-react101 -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true wook3210/docker-react101 npm run test -- --converage
+  - docker run -e CI=true wook3210/docker-react101 npm run test -- --coverage
 
 after_success:
   - echo "Test done."
