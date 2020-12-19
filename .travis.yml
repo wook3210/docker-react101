@@ -1,0 +1,16 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - echo "start creating an image with dockerfile"
+  - docker build -t wook3210/docker-react101 -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true wook3210/docker-react101 npm run test -- --converage
+
+after_success:
+  - echo "Test done."
